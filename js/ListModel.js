@@ -1,17 +1,21 @@
-(function (scope) {
+/*global define, console*/
+define(function (require) {
     'use strict';
-    /*global Event*/
 
-    scope.ListModel = function (items) {
+    var Event = require('./Event');
+
+    console.log('ListController module was loaded');
+
+    function ListModel(items) {
         this.itemsProperty = items;
         this.selectedIndexProperty = -1;
 
         this.itemAdded = new Event(this);
         this.itemRemoved = new Event(this);
         this.selectedIndexChanged = new Event(this);
-    };
+    }
 
-    scope.ListModel.prototype = {
+    ListModel.prototype = {
         getItems: function () {
             return [].concat(this.itemsProperty);
         },
@@ -46,4 +50,5 @@
             });
         }
     };
-}(window));
+    return ListModel;
+});

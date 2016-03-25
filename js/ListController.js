@@ -1,7 +1,10 @@
-(function (scope) {
+/*global define, console*/
+define(function () {
     'use strict';
 
-    scope.ListController = function (model, view) {
+    console.log('ListController module was loaded');
+
+    function ListController(model, view) {
         var that = this;
 
         this.modelProperty = model;
@@ -16,9 +19,9 @@
         this.viewProperty.delButtonClicked.attach(function () {
             that.delItem();
         });
-    };
+    }
 
-    scope.ListController.prototype = {
+    ListController.prototype = {
         addItem: function () {
             var item = window.prompt('Add item:', '');
             if (item) {
@@ -37,4 +40,6 @@
             this.modelProperty.setSelectedIndex(index);
         }
     };
-}(window));
+
+    return ListController;
+});

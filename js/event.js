@@ -1,12 +1,15 @@
-(function (scope) {
+/*global define, console*/
+define(function () {
     'use strict';
 
-    scope.Event = function (sender) {
+    console.log('Event module was loaded');
+
+    function Event(sender) {
         this.senderProperty = sender;
         this.listenersProperty = [];
-    };
+    }
 
-    scope.Event.prototype = {
+    Event.prototype = {
         attach: function (listener) {
             this.listenersProperty.push(listener);
         },
@@ -18,4 +21,5 @@
             }
         }
     };
-}(window));
+    return Event;
+});

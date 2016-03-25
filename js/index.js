@@ -1,7 +1,12 @@
-(function () {
+/*global define*/
+define(function (require) {
     'use strict';
-    /*global ListModel, ListView, ListController*/
-    var model = new ListModel(['HTML', 'JavaScript']),
+
+    var ListModel = require('./ListModel'),
+        ListView = require('./ListView'),
+        ListController = require('./ListController'),
+
+        model = new ListModel(['HTML', 'JavaScript']),
         view = new ListView(model, {
             list: document.getElementById('list'),
             addButton: document.getElementById('plusBtn'),
@@ -9,4 +14,4 @@
         }),
         controller = new ListController(model, view);
     view.show();
-}());
+});

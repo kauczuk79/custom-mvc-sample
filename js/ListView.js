@@ -1,8 +1,12 @@
-(function (scope) {
+/*global define, console*/
+define(function (require) {
     'use strict';
-    /*global Event*/
 
-    scope.ListView = function (model, elements) {
+    console.log('ListView module was loaded');
+
+    var Event = require('./Event');
+
+    function ListView(model, elements) {
         var that = this;
 
         this.modelProperty = model;
@@ -30,9 +34,9 @@
         this.elementsProperty.delButton.onclick = function () {
             that.delButtonClicked.notify();
         };
-    };
+    }
 
-    scope.ListView.prototype = {
+    ListView.prototype = {
         show: function () {
             this.rebuildList();
         },
@@ -53,4 +57,6 @@
             this.modelProperty.setSelectedIndex(-1);
         }
     };
-}(window));
+
+    return ListView;
+});
