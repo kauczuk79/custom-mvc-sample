@@ -16,10 +16,10 @@ define(function (require) {
         this.addButtonClicked = new Event(this);
         this.delButtonClicked = new Event(this);
 
-        this.modelProperty.itemAdded.attach(function () {
+        this.modelProperty.itemAdded.attachListener(function () {
             that.rebuildList();
         });
-        this.modelProperty.itemRemoved.attach(function () {
+        this.modelProperty.itemRemoved.attachListener(function () {
             that.rebuildList();
         });
 

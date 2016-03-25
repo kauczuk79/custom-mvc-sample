@@ -10,7 +10,7 @@ define(function () {
     }
 
     Event.prototype = {
-        attach: function (listener) {
+        attachListener: function (listener) {
             this.listenersProperty.push(listener);
         },
 

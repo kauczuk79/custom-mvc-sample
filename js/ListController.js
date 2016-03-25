@@ -10,13 +10,13 @@ define(function () {
         this.modelProperty = model;
         this.viewProperty = view;
 
-        this.viewProperty.listModified.attach(function (sender, args) {
+        this.viewProperty.listModified.attachListener(function (sender, args) {
             that.updateSelected(args.index);
         });
-        this.viewProperty.addButtonClicked.attach(function () {
+        this.viewProperty.addButtonClicked.attachListener(function () {
             that.addItem();
         });
-        this.viewProperty.delButtonClicked.attach(function () {
+        this.viewProperty.delButtonClicked.attachListener(function () {
             that.delItem();
         });
     }
